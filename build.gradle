@@ -1,0 +1,29 @@
+//定义项目的版本。
+version=1.0
+//使用java插件。好吧，java怎么就成了插件了。
+apply plugin :'java'
+repositories {
+    //配置maven中央仓库。
+	   mavenLocal()
+   	   maven{ url 'http://maven.aliyun.com/nexus/content/groups/public' }  
+}
+
+dependencies {
+  compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
+}
+
+jar{
+  manifest{
+  //生成可执行jar文件。双击就能启动。适用于有窗体的界面。当前刚好合适。
+    attributes 'Main-Class' : 'com.baidutranslation.view.GUIWindow'
+  }
+}
+
+//定义编译版本。
+allprojects {
+   sourceCompatibility = 1.8
+   targetCompatibility = 1.8
+}
+
+println "start ... "
+
